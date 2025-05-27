@@ -10,7 +10,7 @@ namespace CoinGeckoAPI.Repositories
         //GenAI
         public CoinRepository(IConfiguration configuration)
         {
-            _connectionString = configuration.GetConnectionString("DefaultConnection");
+            _connectionString = configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
         }
 
         // Get Coin by Id from DB
