@@ -34,7 +34,7 @@ namespace CoinGeckoAPI.Controllers
             try
             {
                 var coin = await _service.GetCoinAsync(id);
-                return coin != null ? Ok(coin) : NotFound();
+                return coin != null ? Ok(coin) : NotFound($"Coin with Id {id} not found.");
             }
             catch (Exception ex)
             {
