@@ -36,14 +36,13 @@ CREATE TABLE Coins (
 ```
 
 ### Run App on Command Prompt
-- git clone [https://github.com/your-username/coingecko-api](https://github.com/dilshan3/CoinGeckoAPI.git)
+- git clone https://github.com/dilshan3/CoinGeckoAPI
 - cd CoinGeckoAPI
 - dotnet restore
-- dotnet build
-- dotnet run
+- dotnet run --launch-profile https --project CoinGeckoAPI/CoinGeckoAPI.csproj
 
 ### Test App
-GET https://localhost:5001/api/coin/bitcoin
+GET https://localhost:7255/api/coin/bitcoin
 
 ---
 
