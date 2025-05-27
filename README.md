@@ -21,11 +21,21 @@ A lightweight ASP.NET Core Web API project that fetches cryptocurrency data from
 
 ### 🔧 Prerequisites
 - .NET SDK 8
-- SQL Server (local)
+- SQL Server (local/remote)
 
-### ⚙️ SQL Setup
-Run the following to create the required table:
+
+### 🗃️ Database Setup
+
+Before running the API, ensure your SQL Server database is created and the `Coins` table is initialized:
+
+1. **Create the database**:
 ```sql
+CREATE DATABASE CoinDb;
+```
+   
+2. Run the following to create the required table:
+```sql
+USE CoinDb
 CREATE TABLE Coins (
     Id NVARCHAR(100) PRIMARY KEY,
     Symbol NVARCHAR(20),
@@ -35,6 +45,20 @@ CREATE TABLE Coins (
 );
 ```
 
+⚠️ Make sure the connection string in appsettings.json matches your SQL Server setup:
+
+```json
+"ConnectionStrings": {
+  "DefaultConnection": "Server=localhost;Database=CoinDb;Trusted_Connection=True;"
+}
+```
+If using SQL authentication:
+
+```json
+"ConnectionStrings": {
+  "DefaultConnection": "Server=localhost;Database=CoinDb;User Id=yourUsername;Password=yourPassword;"
+}
+```
 ### Run App on Command Prompt
 - git clone https://github.com/dilshan3/CoinGeckoAPI
 - cd CoinGeckoAPI
